@@ -1,10 +1,14 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
-import redis from 'redis';
-
-import User from '../models';
-
+const mongoose = require('mongoose');
+const redis = require('redis');
 const LocalStrategy = require('passport-local').Strategy;
+
+const { User } = require('../models');
+const bcrypt = require('bcrypt');
+
+
+
+const getUsernameIPkey = (username, ip) => `${username}_${ip}`;
+
 
 const strategy = new LocalStrategy(
 	async function(username, password, done) {
@@ -15,7 +19,6 @@ const strategy = new LocalStrategy(
                     return done(error);
                 }
                 if (!user) {
-                    logger.error(new Error(error));
                     return done({ 
                         error, 
                         success: false, 
@@ -24,7 +27,6 @@ const strategy = new LocalStrategy(
                     });
                 }
                 if(!user.checkPassword(password)){
-                    logger.error(new Error(error));
                     return done({ 
                         error, 
                         success: false, 
@@ -35,12 +37,13 @@ const strategy = new LocalStrategy(
                 userData = {
                     userId : (user._id).toString(),
                     userName: user.username,
+                    userRole: user.userrole,
                     createdAt: user.createdAt,
                     updatedAt: user.updatedAt,
                 }
                 return done(null, userData);
             })     
 	}
-)
+);
 
-export default strategy;
+module.exports = strategy

@@ -1,3 +1,6 @@
-import { User, userSchema } from './user.model';
+const { User, userSchema } = require('./user.model');
 
-export default { User, userSchema };
+module.exports= { 
+    User,
+    userSchema,
+}

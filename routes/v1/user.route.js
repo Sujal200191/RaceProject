@@ -12,10 +12,7 @@ const {
 
 const router = express.Router({mergeParams : true});
 
-const notificationRouter = require('./notification.route');
-
-router.use('/:id/notifications', notificationRouter);
-routeruser.route
+router
     .route('/')
     .get(checkUserTokenForAdminAccess, userController.getAllUsers);
 

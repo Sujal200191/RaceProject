@@ -1,5 +1,5 @@
-import redis from 'redis';
-import asyncRedis from "async-redis"; 
+const redis = require('redis');
+const asyncRedis = require("async-redis"); 
 
 const options= {
     host: "127.0.0.1",
@@ -9,8 +9,7 @@ const options= {
 let redisClient;
 
 if(process.env.NODE_ENV === 'production' || process.env.REDISCLOUD_URL){
-    console.log("Connecting to redis in PROD: ");
-    
+    console.log("Connecting to redis in production environment: ");
     redisClient = asyncRedis.createClient(process.env.REDISCLOUD_URL, {no_ready_check: true})
     redisClient.on("connect", function () {
         console.log("REDIS SUCCESSFULLY PLUGGED IN");

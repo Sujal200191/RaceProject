@@ -16,12 +16,6 @@ router
     .route('/token')
     .post(
         authController.refreshExpiredToken
-    )
-
-// router
-//     .route('/refreshtoken/:id')
-//     .get(
-//         authController.
-//     )
+    );
 
 module.exports = router;

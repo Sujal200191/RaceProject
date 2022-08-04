@@ -1,19 +1,33 @@
-import mongoose from 'mongoose';
-import bcrypt from 'bcrypt';
-
+const mongoose = require('mongoose');
 const { Schema } = mongoose;
+const bcrypt = require('bcrypt');
 
 const { generateRandomizedString } = require('../../Helper');
 
-mongoose.promise = Promise
+mongoose.promise = Promise;
 
-export const userSchema = new Schema({
-    username: {
-        type: String, 
+const userSchema = new Schema({
+    firstName: {
+        type: String,
+        required: true,
+        unique: false
+    },
+    lastName: {
+        type: String,
+        required: true,
+        unique: false
+    },
+    userName: {
+        type: String,
         required: true,
         unique: false
     },
     password: {
+        type: String,
+        required: true,
+        unique: false
+    },
+    organization: {
         type: String,
         required: true,
         unique: false
@@ -37,19 +51,24 @@ userSchema.pre('save', async function (next) {
         next();
     } else {
         this.password = this.hashPassword(this.password);
-        next();
+        next()
     }
-    next();
 });
 
-userSchema.method('comparePassword', function (password) {
-    if (bcrypt.compareSync(password, this.password)) return true;
-    return false;
-});
+// Define schema methods
+userSchema.methods = {
+    checkPassword: function (inputPassword) {
+        const result = bcrypt.compareSync(inputPassword, this.password);
+        return result;
+    },
+    hashPassword: plainTextPassword => {
+        return bcrypt.hashSync(plainTextPassword, 10)
+    },
+    getSaltRounds: function(dataString){
+        return bcrypt.getRounds(dataString);
+    }
+}
 
-userSchema.static('hashPassword', (password) => {
-    return bcrypt.hashSync(password);
-});
+const User = mongoose.model('users', userSchema);
 
-
-export const User = mongoose.model('Users', userSchema);
+module.exports = { User, userSchema };
