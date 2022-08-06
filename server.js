@@ -29,9 +29,11 @@ server.use(function(req, res, next) {
     
     if(req.headers['origin'] === process.env.PROD){
         originURL = process.env.PROD  
+        // eslint-disable-next-line no-console
         console.log("PROD ORIGIN URL: ", originURL ,process.env.PROD, process.env.DEV)
     }else if(req.headers['origin'] === process.env.DEV){
         originURL = process.env.DEV
+        // eslint-disable-next-line no-console
         console.log("DEV ORIGIN URL: ", originURL, process.env.PROD, process.env.DEV)
     }
     res.removeHeader('X-powered-by');

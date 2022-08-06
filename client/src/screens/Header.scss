@@ -20,7 +20,16 @@
                 background-color: transparent;
                 border: none;
                 color: #f2f2f2;
+                text-decoration: none;
             }
-        }       
+        } 
+        .welcomeMessage{
+            p{
+                font-size: 15px;
+                font-weight: bold;
+                color: #f2f2f2;
+                margin: 3px!important;
+            }
+        }      
     }
 }
