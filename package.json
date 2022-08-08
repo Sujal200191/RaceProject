@@ -4,11 +4,10 @@
   "description": "",
   "main": "server.js",
   "scripts": {
-    "server": "nodemon serveer.js",
+    "server": "nodemon server.js",
     "test": "echo \"Error: no test specified\" && exit 1",
     "dev": "concurrently --kill-others-on-fail \"npm run server\" ",
     "start": "node server.js",
-    "stop": "pm2 stop ecosystem.config.js",
     "heroku-prebuild": "cd client && npm install && npm run build",
     "deploy": "git add . && git commit -m Heroku && git push heroku master",
     "lint": "npx eslint . --ext .js",
