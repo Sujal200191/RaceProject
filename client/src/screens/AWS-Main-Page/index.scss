@@ -1,0 +1,13 @@
+.awsMainPageContainer {
+    position: relative;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    text-align: center;
+    flex-direction: column;
+    margin-top: 50px;
+    background-position: top center;
+    background-repeat: no-repeat;
+    // z-index: -1;
+    height: 100%;
+}

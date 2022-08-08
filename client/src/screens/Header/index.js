@@ -28,7 +28,7 @@ const Header = (props) => {
             <Container fluid className="headerContainer">
                 <Row className="headerPrimaryRow">
                     <Col lg="4" className="welcomeMessage">
-                        <p>Welcome {props.firstName}</p>
+                        <p>Welcome {props.firstName || 'Sujal'}</p>
                     </Col>
                 </Row>
             </Container>
