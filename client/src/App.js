@@ -12,8 +12,10 @@ import Login from './screens/Login';
 import Footer from './screens/Footer';
 import MainPage from './screens/MainPage';
 import Services from './screens/Services';
+import AWSMainPage from './screens/AWS-Main-Page';
 
 import './App.scss';
+
 
 const App = () => {
   return (
@@ -24,6 +26,7 @@ const App = () => {
           <Route path="/register" element={<Register />} />
           <Route path="/main-page" element={<MainPage />} />
           <Route path="/services" element={<Services />} />
+          <Route path="/aws-main-page" element={<AWSMainPage />} />
         </Routes>
       <Footer/>
     </div>
