@@ -11,6 +11,7 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Footer from './screens/Footer';
 import MainPage from './screens/MainPage';
+import Services from './screens/Services';
 
 import './App.scss';
 
@@ -22,6 +23,7 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/main-page" element={<MainPage />} />
+          <Route path="/services" element={<Services />} />
         </Routes>
       <Footer/>
     </div>

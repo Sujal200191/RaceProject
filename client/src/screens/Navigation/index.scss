@@ -1,0 +1,17 @@
+.sidebarContainer{
+    // position: fixed;
+    position: absolute;
+    top: 66px;
+    bottom: 52px;
+    display: flex;
+    flex-grow: 1;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    width: 176px;
+    background: #005F73 0% 0% no-repeat padding-box;
+    z-index: 1000;
+    opacity: 1;
+    padding: 10px;
+    overflow: hidden;
+}
