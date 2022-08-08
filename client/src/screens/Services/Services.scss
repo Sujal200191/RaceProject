@@ -1,0 +1,12 @@
+.servicesNavigationContainer{
+    display: flex;
+    flex-direction: row;
+}
+
+.servicesContainer{
+    vertical-align: top;
+    display: inline-block;
+    padding: 20px 20px 20px 20px;
+    // margin-left: 176px;
+    width: calc(100% - 176px);
+}

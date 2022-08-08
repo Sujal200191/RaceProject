@@ -1,9 +1,9 @@
 import React from "react";
 import { Container, Row, Col } from "react-bootstrap";
 import { useNavigate } from "react-router-dom";
-import Web3 from "../assets/images/web3.jpg";
+import Web3 from "../../assets/images/web3.jpg";
 
-import Header from "./Header";
+import Header from "../Header";
 import "./Landing.scss";
 
 const Landing = () => {

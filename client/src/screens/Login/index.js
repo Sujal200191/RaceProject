@@ -3,7 +3,7 @@ import { Button, Container, Col, Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
-import Header from './Header';
+import Header from '../Header';
 
 const Loader = () => {
     return (

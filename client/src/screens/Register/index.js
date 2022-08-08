@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { Button, Container, Col, Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 
-import Header from './Header';
+import Header from '../Header';
 import './Register.scss';
 
 const Loader = () => {
