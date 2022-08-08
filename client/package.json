@@ -2,7 +2,7 @@
   "name": "client",
   "version": "0.1.0",
   "private": true,
-  "proxy": "http://localhost:3002",
+  "proxy": "http://localhost:3001",
   "dependencies": {
     "@aws-sdk/client-iam": "^3.142.0",
     "@aws-sdk/credential-providers": "^3.142.0",
