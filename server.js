@@ -4,7 +4,6 @@ const path = require('path');
 const morgan = require('morgan');
 const cors = require('cors');
 const helmet = require('helmet');
-// const redisClient  = require('./database/redis');
 const cookieParser = require('cookie-parser');
 const cluster = require('cluster');
 const http = require('http');
