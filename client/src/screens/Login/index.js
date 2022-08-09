@@ -35,7 +35,7 @@ const Login = () => {
 
     const handleUserLogin = async() => {
         setLoading(true);
-        await delay(5000);
+        await delay(2000);
         setLoading(false);
         navigate(`/main-page`, { state: {firstName: userName }}); 
     } 

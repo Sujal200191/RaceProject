@@ -6,9 +6,15 @@ const { awsController } = require('../../controllers');
 const router = express.Router();
 
 router
-    .route('/')
+    .route('/get-users')
     .get( 
-        awsController.getAccountInfo
+        awsController.getUsers
+    );
+
+router
+    .route('/get-account-summary')
+    .get( 
+        awsController.getAccountSummary
     );
 
 

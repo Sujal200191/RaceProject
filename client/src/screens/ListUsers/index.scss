@@ -1,4 +1,41 @@
-.awsMainPageContainer {
+.userTableContainer{
+    border: 2px solid #005F73;
+    border-radius: 26px;
+    height: 100%;
+    overflow: hidden;
+    margin-top: 0.5rem;
+    padding: 0rem;
+    margin-bottom: 1.5rem;
+}
+
+.listUsersTableRow{
+    width: 80%;
+    margin: 45px;
+}
+
+::-webkit-scrollbar {
+    width: 3px;
+  }
+  
+  /* Track */
+  ::-webkit-scrollbar-track {
+    background: #98C1D9;
+  }
+  
+  /* Handle */
+  ::-webkit-scrollbar-thumb {
+    background: #005F73;
+    border-radius: 12px;
+  }
+  
+  /* Handle on hover */
+  ::-webkit-scrollbar-thumb:hover {
+    // background: #98C1D9;
+    border-radius: 10px;
+  }
+
+
+  .listUsersPageContainer {
     position: relative;
     display: flex;
     justify-content: center;
@@ -10,13 +47,20 @@
     background-repeat: no-repeat;
     // z-index: -1;
     height: 100%;
-    .awsMainPagePrimaryRow{
+    .listUsersPagePrimaryRow{
         display: flex;
-        justify-content: space-between;
         align-items: center;
-        flex-direction: row;
-        width: 45%;
+        justify-content: space-between;
+        width: 60%;
+        .listUsersPagePrimaryRowContainer{
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-direction: row;
+            width: 45%;
+        }
     }
+    
     .awsMainPageAccountSummaryRow{
         display: flex;
         justify-content: center;
@@ -43,16 +87,11 @@
                 opacity: 1;
                 margin-bottom: 0rem;
             }
-            .underline{
-                text-decoration: underline;
-                color:#005F73;
-            }
             .awsMainPageAccountSummaryValue{
                 font-size: 20px;
                 text-align: left;
                 font-weight: bold;
                 color: #005F73;
-                line-height: 22px;
                 &:hover{
                     cursor: pointer;
                 }

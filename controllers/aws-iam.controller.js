@@ -4,15 +4,13 @@ const AWS = require('aws-sdk');
 
 const { config, IAM } = AWS;
 
-async function getAccountInfo(req, res, next){
+const getUsers = (req, res, next) => {
     // AWS.config.loadFromPath('./config.json');
     const iam = new IAM({
         apiVersion: '2010-05-08',
         'AWS_ACCESS_KEY_ID': process.env.AWS_ACCESS_KEY_ID,
         'AWS_SECRET_ACCESS_KEY': process.env.AWS_SECRET_ACCESS_KEY,
     });
-
-    // console.log("IAM: ", iam);
 
     const params = {
         MaxItems: 20
@@ -31,6 +29,28 @@ async function getAccountInfo(req, res, next){
     });
 }
 
+const getAccountSummary = (req, res, next) => {
+    // AWS.config.loadFromPath('./config.json');
+    const iam = new IAM({
+        apiVersion: '2010-05-08',
+        'AWS_ACCESS_KEY_ID': process.env.AWS_ACCESS_KEY_ID,
+        'AWS_SECRET_ACCESS_KEY': process.env.AWS_SECRET_ACCESS_KEY,
+    });
+
+    iam.getAccountSummary({}, function(error, data) {
+        if(error){
+            // eslint-disable-next-line no-console
+            console.log("Error encountered while fetchin getAccountSummary", error);
+        }else{
+            // eslint-disable-next-line no-console
+            console.log("Data: ", data);
+            // var users = data.Users || [];
+            res.send(data.SummaryMap);
+        }
+    });
+}
+
 module.exports = {
-    getAccountInfo
+    getUsers,
+    getAccountSummary
 }
