@@ -32,8 +32,15 @@ const AWSMainPage = () => {
     }, []);
 
     const handleUsersClick = () => {
+        // eslint-disable-next-line no-console
         console.log("Inside handleUsersClick function: ");
         navigate('/list-users');
+    }
+
+    const handleGroupsClick = () => {
+        // eslint-disable-next-line no-console
+        console.log("Inside handleGroupsClick function: ");
+        navigate('/list-groups');
     }
 
     const handleBackButtonClick = () => {
@@ -76,7 +83,7 @@ const AWSMainPage = () => {
                             </div>
                             <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>Groups: </label>                  
-                                <p className="awsMainPageAccountSummaryValue underline" onClick={handleUsersClick}>{apiData?.Groups || ''}</p>       
+                                <p className="awsMainPageAccountSummaryValue underline" onClick={handleGroupsClick}>{apiData?.Groups || ''}</p>       
                             </div>
                             <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>Account MFA enabled: </label>                  

@@ -12,6 +12,12 @@ router
     );
 
 router
+    .route('/get-groups')
+    .get( 
+        awsController.getGroups
+    );
+
+router
     .route('/get-account-summary')
     .get( 
         awsController.getAccountSummary
