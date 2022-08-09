@@ -29,5 +29,17 @@ router
         awsController.getAccountSummary
     );
 
+router
+    .route('/get-password-policies')
+    .get( 
+        awsController.getAccountPasswordPolicies
+    );
+
+router
+    .route('/get-account-auth-details')
+    .get(
+        awsController.getAccountAuthDetails
+    );
+
 
 module.exports = router;

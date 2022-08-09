@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { Button, Container, Col, Form } from "react-bootstrap";
+import { Container, Col, Form } from "react-bootstrap";
 import { useNavigate } from 'react-router-dom';
 import './Login.scss';
 
@@ -80,12 +80,12 @@ const Login = () => {
                         </Col>
                     </Form>
                     <Col className='row create-new-user-header-row'>
-                        <Button
+                        <button
                             className="loginButton"
                             onClick={handleUserLogin}
                             type="submit"
                         >Login
-                        </Button>
+                        </button>
                     </Col>
                 </Container>
             </>

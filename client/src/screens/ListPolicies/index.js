@@ -1,6 +1,6 @@
 /* eslint-disable react/jsx-curly-newline */
 import React,{ useState, useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
+import { useNavigate, useLocation } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import {
     faAws,
@@ -18,6 +18,8 @@ const ListPolicies = () => {
     const [loading, setLoader] = useState(true);
 
     const navigate = useNavigate();
+    const location = useLocation();
+
     const delay = ms => new Promise(res => setTimeout(res, ms));
 
     useEffect(() => {
@@ -33,7 +35,7 @@ const ListPolicies = () => {
     }, []);
 
     const handleBackButtonClick = () => {
-        navigate('/aws-main-page');
+        navigate('/aws-main-page', { state: {firstName : location?.state?.firstName}});
     }
 
     if(loading || apiData == null){
@@ -50,7 +52,7 @@ const ListPolicies = () => {
             <>
                 <Header isLoginRegister={ false } firstName={location?.state?.firstName}/>
                 <div className="container-fluid listPoliciesPageContainer">
-                    <div className="row listPoliciesPagePrimaryRow">
+                    <div className="listPoliciesPagePrimaryRow">
                         <div className="listUserBackButtonContainer">
                             <img className='back-button pr-3' onClick={handleBackButtonClick} src={BackButton} alt='Back button Icon'/>
                         </div>

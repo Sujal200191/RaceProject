@@ -14,6 +14,7 @@
 }
 
 .landingHeaderRow{
+    padding: 25px;
     color: #005F73;
     .landingMainHeader {
         font-size: 50px !important;
@@ -27,12 +28,12 @@
 
 .landingImageContainer {
     .landingMainImage{
-        max-height: 400px;
+        max-height: 330px;
     }
 }
 
 .landingPrimaryRow{
-    padding: 5px 20px;
+    padding: 15px 20px;
     .buttonColumn{
         display: flex;
         flex-direction: row;
