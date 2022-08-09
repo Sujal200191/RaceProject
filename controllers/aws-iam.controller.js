@@ -29,6 +29,31 @@ const getUsers = (req, res, next) => {
     });
 }
 
+const getGroups = (req, res, next) => {
+    // AWS.config.loadFromPath('./config.json');
+    const iam = new IAM({
+        apiVersion: '2010-05-08',
+        'AWS_ACCESS_KEY_ID': process.env.AWS_ACCESS_KEY_ID,
+        'AWS_SECRET_ACCESS_KEY': process.env.AWS_SECRET_ACCESS_KEY,
+    });
+
+    const params = {
+        MaxItems: 20
+    };
+
+    iam.listGroups(params, function(error, data) {
+        if (error) {
+            // eslint-disable-next-line no-console
+            console.log("Error:", error);
+        } else {
+            // eslint-disable-next-line no-console
+            console.log("Data: ", data);
+            var groups = data.Groups || [];
+            res.send(groups);
+        }
+    });
+}
+
 const getAccountSummary = (req, res, next) => {
     // AWS.config.loadFromPath('./config.json');
     const iam = new IAM({
@@ -52,5 +77,6 @@ const getAccountSummary = (req, res, next) => {
 
 module.exports = {
     getUsers,
-    getAccountSummary
+    getAccountSummary,
+    getGroups
 }

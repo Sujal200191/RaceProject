@@ -1,6 +1,6 @@
 .mainPageContainer{
     display: flex;
-    justify-content: start;
+    justify-content: flex-start;
     align-items: flex-start;
     text-align: left;
     padding: 20px;
@@ -18,7 +18,7 @@
             width: 60%;
             .mainPageGoButtonContainer {
                 display: flex;
-                justify-content: end;
+                justify-content: flex-end;
                 margin-right: 100px;
                 .mainPageGoButton{
                     background: #089BAB33 0% 0% no-repeat padding-box;

@@ -42,9 +42,12 @@ const Login = () => {
     
     if(loading){
         return(
-            <div className="loaderContainer">
-                <Loader />
-            </div>         
+            <>
+                <Header isLoginRegister={ false } firstName={location?.state?.firstName}/>
+                <div className="loaderContainer">
+                    <Loader />
+                </div> 
+            </>             
         );
     }else{
         return(

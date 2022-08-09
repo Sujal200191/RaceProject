@@ -1,14 +1,15 @@
 import React from 'react';
 
 import './index.scss';
-import UserTableRow from './UserTableRow';
+import GroupTableRow from './GroupTableRow';
 
-const UserTable = ({users}) => {
+const GroupsTable = ({groups}) => {
     // eslint-disable-next-line no-console
-    console.log("users received in usertAble:::::", users);
-    const getUserTableBody = () => {
-        return users.map((object, index) => {
-            return <UserTableRow user={object} key={index} />
+    console.log("Groups received in groupTable:::::", groups);
+
+    const getGroupTableBody = () => {
+        return groups.map((object, index) => {
+            return <GroupTableRow group={object} key={index} />
         })
     } 
 
@@ -16,8 +17,8 @@ const UserTable = ({users}) => {
             <table className='responsive pr-3' data-pagination='true' data-click-to-select='true'>
                 <thead className='table-header' style={{'color':'#2E363E'}}>
                     <tr>
-                        <th>User Id</th>
-                        <th>User Name</th>
+                        <th>Group Id</th>
+                        <th>Group Name</th>
                         <th>Path</th>
                         <th>Arn</th>
                         <th>Created At</th>
@@ -25,11 +26,11 @@ const UserTable = ({users}) => {
                 </thead>
                 <tbody>
                     { 
-                        getUserTableBody()
+                        getGroupTableBody()
                     }
                 </tbody>
             </table>
     );
 }
 
-export default UserTable;
+export default GroupsTable;

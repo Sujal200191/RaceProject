@@ -1,10 +1,13 @@
 /* eslint-disable react/jsx-curly-newline */
 import React from 'react';
+import { format } from 'date-fns';
+
 import './index.scss';
 
 const UserTableRow = ({
     user
 }) => {
+    const formattedUpdateDate = format(new Date(user.CreateDate), 'MM/dd/yyyy');
     return (
         <tr className="table-row-text-color">
             { user.UserId && 
@@ -29,7 +32,7 @@ const UserTableRow = ({
             }
             { user.CreateDate &&
                 <td>
-                  { user.CreateDate }
+                  { formattedUpdateDate }
                 </td>
             }
         </tr>
