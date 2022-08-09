@@ -32,21 +32,24 @@
     border-radius: 12px;
     opacity: 1;
     border: 1px solid #007683;
-    text-align: left;
+    // text-align: left;
     font-size: 18px;
     font-family: Maven Pro;
     // line-height: 1px;
     font-weight: bold;
     letter-spacing: 0px;
     color: #007683;
-    padding: 0.5rem 1.5rem 0.5rem 1.5rem;
-    cursor: pointer;
+    padding: 0.5rem 1.5rem 0.5rem 1.5rem;   
+    &.hover {
+        cursor: pointer;
+        color: #007683;
+    }
 }
 
 .user-name-form-group, .user-password-form-group{
     display: flex;
     align-items: flex-start;
-    justify-content: space-evenly;
+    justify-content: space-between;
     padding: 1rem;
 }
 

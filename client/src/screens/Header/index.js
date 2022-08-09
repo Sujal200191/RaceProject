@@ -1,10 +1,16 @@
 import React from "react";
 import { Col, Container, Row } from "react-bootstrap";
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 import "./Header.scss";
 
 const Header = (props) => {
+    const navigate = useNavigate();
+
+    const handleLogout = () => {
+        navigate('/', { state: {}});
+    }
+
     if(props?.isLoginRegister){
         return(
             <Container fluid className="headerContainer">
@@ -23,9 +29,12 @@ const Header = (props) => {
     }else{
         return(
             <Container fluid className="headerContainer">
-                <Row className="headerPrimaryRow">
-                    <Col lg="4" className="welcomeMessage">
-                        <p>Welcome {props.firstName || 'Sujal'}</p>
+                <Row className="headerSecondaryRow">
+                    <Col className="welcomeMessage">
+                        <p>Welcome {props.firstName || '...'}</p>
+                    </Col>
+                    <Col className="logoutButtonContainer" onClick={handleLogout}>
+                        <p className="logoutText">Logout</p>
                     </Col>
                 </Row>
             </Container>

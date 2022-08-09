@@ -16,9 +16,9 @@ import AWSMainPage from './screens/AWS-Main-Page';
 import ListUsers from './screens/ListUsers';
 import ListGroups from './screens/ListGroups';
 import ListPolicies from './screens/ListPolicies';
+import Analytics from './screens/Analytics';
 
 import './App.scss';
-
 
 const App = () => {
   return (
@@ -33,6 +33,7 @@ const App = () => {
           <Route path="/list-users" element={<ListUsers />} />
           <Route path="/list-groups" element={<ListGroups />} />
           <Route path="/list-policies" element={<ListPolicies />} />
+          <Route path="/account-analytics" element={<Analytics />} />
         </Routes>
       <Footer/>
     </div>

@@ -60,7 +60,7 @@ const MainPage = (props) => {
         setLoading(true);
         await delay(5000);
         setLoading(false);
-        navigate(`/aws-main-page`); 
+        navigate(`/aws-main-page`, { state: {firstName : location?.state?.firstName}}); 
     } 
 
     // eslint-disable-next-line no-console
@@ -68,9 +68,12 @@ const MainPage = (props) => {
 
     if(loading){
         return(
-            <div className="loaderContainer">
-                <Loader />
-            </div>         
+            <>
+                <Header isLoginRegister={ false } firstName={location?.state?.firstName}/>
+                <div className="loaderContainer">
+                    <Loader />
+                </div> 
+            </>        
         );
     }else{
         return(
@@ -86,16 +89,11 @@ const MainPage = (props) => {
                     </Row>
                     <Row className="mainPageSecondaryRow">
                         <Form role='form' className="formContainer">
-                            <a
-                                href="/services"
-                                rel="noreferrer"
-                            >
                             <FontAwesomeIcon
                                 icon={faAws}
                                 color="#005F73"
                                 className="fa-medium fa-10x"
                             />
-                            </a>
                             <Col className='form-group user-password-form-group'>       
                                 <label className='form-label user-password-form-label' htmlFor='password'>Access Key</label>                  
                                 <input 
@@ -130,16 +128,11 @@ const MainPage = (props) => {
                             </Col>                   
                         </Form>
                         <Form role='form' className="formContainer">
-                            <a
-                                href="/services"
-                                rel="noreferrer"
-                            >
                             <FontAwesomeIcon
                                 icon={faMicrosoft}
                                 color="#005F73"
                                 className="fa-medium fa-10x"
                             />
-                            </a>
                             <Col className='form-group user-password-form-group'>       
                                 <label className='form-label user-password-form-label' htmlFor='password'>Access Key</label>                  
                                 <input 
@@ -173,16 +166,11 @@ const MainPage = (props) => {
                             </Col>                   
                         </Form>
                         <Form role='form' className="formContainer">
-                            <a
-                                href="/services"
-                                rel="noreferrer"
-                            >
                             <FontAwesomeIcon
                                 icon={faGoogle}
                                 color="#005F73"
                                 className="fa-medium fa-10x"
                             />
-                            </a>
                             <Col className='form-group user-password-form-group'>       
                                 <label className='form-label user-password-form-label' htmlFor='password'>Access Key</label>                  
                                 <input 

@@ -1,0 +1,212 @@
+.analyticsContainer{
+    .analyticsPrimaryRow{
+        display: flex;
+        // width: 70%;
+        justify-content: flex-start;
+        align-items: center;
+        padding: 20px;
+    }
+    .analyticsRow{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+        .mfaDevicesAndOtherAnalyticsContainer{
+            .mfaHeader{
+                text-align: left;
+                font-size: 20px;
+                font-family: Maven Pro;
+                line-height: 22px;
+                font-weight: 500;
+                letter-spacing: 0px;
+                // font: normal normal bold 18px/22px Maven Pro;
+                letter-spacing: 0px;
+                color: #005F73;
+                opacity: 1;
+                margin-bottom: 0rem;
+                margin: 20px 15px;
+            }
+            .mfaDevicesAnalyticsContainer{
+                margin: 10px;
+                border: 2px solid #005F73;
+                border-radius: 12px;
+                height: 100%;
+                padding: 15px;
+                ul{
+                    li{
+                        text-align: left;
+                        font-size: 20px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        color: #005F73;
+                        opacity: 1;
+                        margin-bottom: 0rem;
+                        margin: 20px 15px;
+                    }
+                }
+                .mfaFindingsMessage{
+                        text-align: left;
+                        font-size: 16px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        font-weight: 500;
+                        letter-spacing: 0px;
+                        // font: normal normal bold 18px/22px Maven Pro;
+                        letter-spacing: 0px;
+                        color: #023047;
+                        opacity: 1;
+                        padding: 15px;
+                }
+                .dangerColor{
+                    color: #E63946;
+                }
+                .mfaTotalDevices{
+                    padding: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .mfaTotalDevicesPara{
+                        text-align: left;
+                        font-size: 22px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        font-weight: 200;
+                        letter-spacing: 0px;
+                        // font: normal normal bold 18px/22px Maven Pro;
+                        letter-spacing: 0px;
+                        color: #005F73;
+                        opacity: 1;
+                        margin-bottom: 0rem;
+                    }
+                    .mfaTotalDevicesLabel{
+                        text-align: left;
+                        font-size: 20px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        font-weight: 500;
+                        letter-spacing: 0px;
+                        // font: normal normal bold 18px/22px Maven Pro;
+                        letter-spacing: 0px;
+                        color: #005F73;
+                        opacity: 1;
+                        margin-bottom: 0rem;
+                    }
+                }
+                .mfaEnabledDevices{
+                    padding: 20px;
+                    display: flex;
+                    justify-content: space-between;
+                    align-items: center;
+                    .mfaEnabledDevicesLabel{
+                        text-align: left;
+                        font-size: 20px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        font-weight: 500;
+                        letter-spacing: 0px;
+                        // font: normal normal bold 18px/22px Maven Pro;
+                        letter-spacing: 0px;
+                        color: #005F73;
+                        opacity: 1;
+                        margin-bottom: 0rem;
+                    }
+                    .mfaEnabledDevicesPara{
+                        text-align: left;
+                        font-size: 22px;
+                        font-family: Maven Pro;
+                        line-height: 22px;
+                        font-weight: 200;
+                        letter-spacing: 0px;
+                        // font: normal normal bold 18px/22px Maven Pro;
+                        letter-spacing: 0px;
+                        color: #005F73;
+                        opacity: 1;
+                        margin-bottom: 0rem;
+                    }
+                }
+            }         
+        }
+        .passwordPolicyAnalyticsContainer{
+            .policyHeaderRow{
+                display: flex;
+                .header{
+                    text-align: left;
+                    font-size: 20px;
+                    font-family: Maven Pro;
+                    line-height: 22px;
+                    font-weight: 500;
+                    letter-spacing: 0px;
+                    // font: normal normal bold 18px/22px Maven Pro;
+                    letter-spacing: 0px;
+                    color: #000000;
+                    opacity: 1;
+                    margin-bottom: 0rem;
+                    margin: 5px;
+                }
+                .policyName{
+                    text-align: left;
+                    font-size: 16px;
+                    font-family: Maven Pro;
+                    line-height: 22px;
+                    font-weight: 500;
+                    letter-spacing: 0px;
+                    // font: normal normal bold 18px/22px Maven Pro;
+                    letter-spacing: 0px;
+                    color: #000000;
+                    opacity: 1;
+                    margin-bottom: 0rem;
+                    margin: 5px;
+                }
+                .policyActualValue{
+                    // text-align: left;
+                    font-size: 18px;
+                    font-family: Maven Pro;
+                    line-height: 22px;
+                    font-weight: 500;
+                    letter-spacing: 0px;
+                    // font: normal normal bold 18px/22px Maven Pro;
+                    letter-spacing: 0px;
+                    color: #005F73;
+                    opacity: 1;
+                    margin-bottom: 0rem;
+                    margin: 5px;
+                }
+                .policyRecommendedValue{
+                    // text-align: left;
+                    font-size: 18px;
+                    font-family: Maven Pro;
+                    line-height: 22px;
+                    font-weight: 500;
+                    letter-spacing: 0px;
+                    // font: normal normal bold 18px/22px Maven Pro;
+                    letter-spacing: 0px;
+                    color: #005F73;
+                    opacity: 1;
+                    margin-bottom: 0rem;
+                    margin: 5px;
+                }
+            }
+            .passwordPolicyAnalyticsTableContainer{
+                margin: 10px;
+                border: 2px solid #005F73;
+                border-radius: 12px;
+                height: 100%;
+                padding: 25px;
+            }
+            .passwordPolicyHeader{
+                text-align: left;
+                font-size: 20px;
+                font-family: Maven Pro;
+                line-height: 22px;
+                font-weight: 500;
+                letter-spacing: 0px;
+                // font: normal normal bold 18px/22px Maven Pro;
+                letter-spacing: 0px;
+                color: #005F73;
+                opacity: 1;
+                margin-bottom: 0rem;
+                margin: 20px 15px;
+            }
+        }
+    }
+}
