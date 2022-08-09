@@ -18,6 +18,12 @@ router
     );
 
 router
+    .route('/get-policies')
+    .get( 
+        awsController.getPolicies
+    );
+
+router
     .route('/get-account-summary')
     .get( 
         awsController.getAccountSummary
