@@ -11,7 +11,6 @@ import Register from './screens/Register';
 import Login from './screens/Login';
 import Footer from './screens/Footer';
 import MainPage from './screens/MainPage';
-import Services from './screens/Services';
 import AWSMainPage from './screens/AWS-Main-Page';
 import ListUsers from './screens/ListUsers';
 import ListGroups from './screens/ListGroups';
@@ -28,7 +27,6 @@ const App = () => {
           <Route path="/login" element={<Login />} />
           <Route path="/register" element={<Register />} />
           <Route path="/main-page" element={<MainPage />} />
-          <Route path="/services" element={<Services />} />
           <Route path="/aws-main-page" element={<AWSMainPage />} />
           <Route path="/list-users" element={<ListUsers />} />
           <Route path="/list-groups" element={<ListGroups />} />
