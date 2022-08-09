@@ -13,6 +13,7 @@ import Footer from './screens/Footer';
 import MainPage from './screens/MainPage';
 import Services from './screens/Services';
 import AWSMainPage from './screens/AWS-Main-Page';
+import ListUsers from './screens/ListUsers';
 
 import './App.scss';
 
@@ -27,6 +28,7 @@ const App = () => {
           <Route path="/main-page" element={<MainPage />} />
           <Route path="/services" element={<Services />} />
           <Route path="/aws-main-page" element={<AWSMainPage />} />
+          <Route path="/list-users" element={<ListUsers />} />
         </Routes>
       <Footer/>
     </div>

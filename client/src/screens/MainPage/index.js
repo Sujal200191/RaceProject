@@ -22,8 +22,12 @@ const Loader = () => {
 }
 
 const MainPage = (props) => {
-    const [accessKey, setAccessKey] = useState('');
-    const [secretKey, setSecretKey] = useState('');
+    const [awsAccessKey, setAwsAccessKey] = useState('');
+    const [awsSecretKey, setAwsSecretKey] = useState('');
+    const [azureAccessKey, setAzureAccessKey] = useState('');
+    const [azureSecretKey, setAzureSecretKey] = useState('');
+    const [gcpAccessKey, setGcpAccessKey] = useState('');
+    const [gcpSecretKey, setGcpSecretKey] = useState('');
     const [ loading, setLoading ] = useState(false);
     const location = useLocation();
 
@@ -35,7 +39,19 @@ const MainPage = (props) => {
     }, [props]);
 
     const handleChange = (event) => {
-        event.target.name === 'accesskey' ? setAccessKey(event.target.value) : setSecretKey(event.target.value);
+        if(event.target.name === 'awsAccesskey'){
+            setAwsAccessKey(event.target.value);
+        }else if(event.target.name === 'awsSecretkey'){
+            setAwsSecretKey(event.target.value);
+        }else if(event.target.name === 'azureAccesskey'){
+            setAzureAccessKey(event.target.value);
+        }else if(event.target.name === 'azureSecretkey'){
+            setAzureSecretKey(event.target.value);
+        }else if(event.target.name === 'gcpAccesskey'){
+            setGcpAccessKey(event.target.value);
+        }else{
+            setGcpSecretKey(event.target.value);
+        }
     }
 
     const delay = ms => new Promise(res => setTimeout(res, ms));
@@ -86,8 +102,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='accesskey'
-                                    value={ accessKey }
+                                    name='awsAccesskey'
+                                    value={ awsAccessKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Access Key'
                                     required
@@ -98,8 +114,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='secretkey'
-                                    value={ secretKey }
+                                    name='awsSecretkey'
+                                    value={ awsSecretKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Secret Key'
                                     required
@@ -132,8 +148,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='accesskey'
-                                    value={ accessKey }
+                                    name='azureAccesskey'
+                                    value={ azureAccessKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Access Key'
                                     required
@@ -144,8 +160,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='secretkey'
-                                    value={ secretKey }
+                                    name='azureSecretkey'
+                                    value={ azureSecretKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Secret Key'
                                     required
@@ -177,8 +193,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='accesskey'
-                                    value={ accessKey }
+                                    name='gcpAccesskey'
+                                    value={ gcpAccessKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Access Key'
                                     required
@@ -189,8 +205,8 @@ const MainPage = (props) => {
                                 <input 
                                     type='text' 
                                     className='user-password-form-input' 
-                                    name='secretkey'
-                                    value={ secretKey }
+                                    name='gcpSecretkey'
+                                    value={ gcpSecretKey }
                                     onChange={ handleChange }
                                     placeholder='Enter Secret Key'
                                     required

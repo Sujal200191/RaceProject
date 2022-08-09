@@ -5,9 +5,6 @@ import { Link } from 'react-router-dom';
 import "./Header.scss";
 
 const Header = (props) => {
-    
-    console.log("Props: ", props);
-
     if(props?.isLoginRegister){
         return(
             <Container fluid className="headerContainer">
