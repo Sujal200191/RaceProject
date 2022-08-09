@@ -2,12 +2,11 @@ import React, { useEffect, useState } from "react";
 import { useLocation, useNavigate } from 'react-router-dom';
 import {
     faAws,
+    faGoogle,
+    faMicrosoft
 } from "@fortawesome/free-brands-svg-icons";
 import { Container, Row, Col, Form, Button } from 'react-bootstrap';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
-
-import Azure from '../../assets/images/azure-1.png';
-import GCP from '../../assets/images/gcp.jpeg';
 
 import Header from "../Header";
 import './MainPage.scss';
@@ -135,12 +134,10 @@ const MainPage = (props) => {
                                 href="/services"
                                 rel="noreferrer"
                             >
-                            <img
-                                src={Azure}
-                                width="150px"
-                                height="100px"                    
-                                alt="Azure"
-                                className="img-fluid"
+                            <FontAwesomeIcon
+                                icon={faMicrosoft}
+                                color="#005F73"
+                                className="fa-medium fa-10x"
                             />
                             </a>
                             <Col className='form-group user-password-form-group'>       
@@ -180,12 +177,10 @@ const MainPage = (props) => {
                                 href="/services"
                                 rel="noreferrer"
                             >
-                            <img
-                                src={GCP}
-                                width="150px"
-                                height="100px"                    
-                                alt="Google Cloud platform"
-                                className="img-fluid"
+                            <FontAwesomeIcon
+                                icon={faGoogle}
+                                color="#005F73"
+                                className="fa-medium fa-10x"
                             />
                             </a>
                             <Col className='form-group user-password-form-group'>       

@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React, { useState, useEffect } from 'react';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { useNavigate } from 'react-router-dom';
@@ -43,6 +44,12 @@ const AWSMainPage = () => {
         navigate('/list-groups');
     }
 
+    const handlePoliciesClick = () => {
+        // eslint-disable-next-line no-console
+        console.log("Inside handlePoliciesClick function: ");
+        navigate('/list-policies');
+    }
+
     const handleBackButtonClick = () => {
         navigate('/main-page');
     }
@@ -71,6 +78,9 @@ const AWSMainPage = () => {
                             />
                         </a>
                     </div>
+                    <div className="row awsMainPageAccountSummaryRow">
+                        <p className="awsMainPageAccountSummaryInfo">Here is the user account summary for your AWS account: </p>
+                    </div>
                     {apiData !== null && 
                         <div className="col-xl-6 col-lg-6 col-md-6 offset-lg-3 awsMainPageAccountSummaryRow">
                             <div className="awsMainPageAccountSummary">
@@ -79,7 +89,7 @@ const AWSMainPage = () => {
                             </div>
                             <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>Policies: </label>                  
-                                <p className="awsMainPageAccountSummaryValue underline" onClick={handleUsersClick}>{apiData?.Policies || ''}</p>       
+                                <p className="awsMainPageAccountSummaryValue underline" onClick={handlePoliciesClick}>{apiData?.Policies || ''}</p>       
                             </div>
                             <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>Groups: </label>                  
@@ -94,7 +104,7 @@ const AWSMainPage = () => {
                                 <p className="awsMainPageAccountSummaryValue" onClick={handleUsersClick}>{apiData?.MFADevices === 0 ? 'false' : 'true'}</p>       
                             </div>
                             <div className="awsMainPageAccountSummary">
-                                <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>MFADevicesInUse: </label>                  
+                                <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>MFA Devices In Use: </label>                  
                                 <p className="awsMainPageAccountSummaryValue" onClick={handleUsersClick}>{apiData?.MFADevicesInUse === 0 ? 'false' : 'true'}</p>       
                             </div>
                             <div className="awsMainPageAccountSummary">

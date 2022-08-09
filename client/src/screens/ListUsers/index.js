@@ -1,3 +1,4 @@
+/* eslint-disable react/jsx-curly-newline */
 import React,{ useState, useEffect } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
@@ -42,9 +43,12 @@ const ListUsers = () => {
 
     if(loading || apiData == null){
         return(
-            <div className="loaderContainer">
-                <Loader />
-            </div> 
+            <>
+                <Header isLoginRegister={ false } firstName={location?.state?.firstName}/>
+                <div className="loaderContainer">
+                    <Loader />
+                </div> 
+            </>       
         );
     }else{
         return(

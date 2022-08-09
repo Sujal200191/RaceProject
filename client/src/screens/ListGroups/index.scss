@@ -2,37 +2,37 @@
     border: 2px solid #005F73;
     border-radius: 26px;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     margin-top: 0.5rem;
     padding: 0rem;
     margin-bottom: 1.5rem;
 }
 
 .listGroupsTableRow{
-    width: 80%;
+    width: 65%;
     margin: 45px;
 }
 
-::-webkit-scrollbar {
-    width: 3px;
-  }
+// ::-webkit-scrollbar {
+//     width: 3px;
+// }
   
-  /* Track */
-  ::-webkit-scrollbar-track {
-    background: #98C1D9;
-  }
+// /* Track */
+// ::-webkit-scrollbar-track {
+//     background: #98C1D9;
+// }
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
-    background: #005F73;
-    border-radius: 12px;
-  }
+// /* Handle */
+// ::-webkit-scrollbar-thumb {
+//     background: #005F73;
+//     border-radius: 12px;
+// }
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
-    // background: #98C1D9;
-    border-radius: 10px;
-  }
+// /* Handle on hover */
+// ::-webkit-scrollbar-thumb:hover {
+//     // background: #98C1D9;
+//     border-radius: 10px;
+// }
 
 
   .listGroupsPageContainer {

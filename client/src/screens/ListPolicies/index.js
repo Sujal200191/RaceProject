@@ -8,11 +8,11 @@ import {
 
 import Loader from "../../components/Loader";
 import Header from '../Header';
-import GroupTable from "../../components/GroupTable";
+import PoliciesTable from "../../components/PoliciesTable";
 import BackButton from '../../assets/images/back-button.svg';
 import './index.scss';
 
-const ListGroups = () => {
+const ListPolicies = () => {
     // eslint-disable-next-line no-unused-vars
     const [apiData, setApiData] = useState(null);
     const [loading, setLoader] = useState(true);
@@ -22,7 +22,7 @@ const ListGroups = () => {
 
     useEffect(() => {
         delay(3000);
-        fetch("/api/v1/aws-iam/get-groups")
+        fetch("/api/v1/aws-iam/get-policies")
             .then((res) => res.json())
             .then((data) => {
                 // eslint-disable-next-line no-console
@@ -43,19 +43,19 @@ const ListGroups = () => {
                 <div className="loaderContainer">
                     <Loader />
                 </div> 
-            </>    
+            </>     
         );
     }else{
         return(
             <>
                 <Header isLoginRegister={ false } firstName={location?.state?.firstName}/>
-                <div className="container-fluid listGroupsPageContainer">
-                    <div className="row listGroupsPagePrimaryRow">
+                <div className="container-fluid listPoliciesPageContainer">
+                    <div className="row listPoliciesPagePrimaryRow">
                         <div className="listUserBackButtonContainer">
                             <img className='back-button pr-3' onClick={handleBackButtonClick} src={BackButton} alt='Back button Icon'/>
                         </div>
-                        <div className="listGroupsLogoContainer">
-                            <div className="col-md-8 offset-md-2 listGroupsPrimaryRowContainer">
+                        <div className="listPoliciesLogoContainer">
+                            <div className="col-md-8 offset-md-2 listPoliciesPrimaryRowContainer">
                                 <a
                                     href="/services"
                                     rel="noreferrer"
@@ -70,9 +70,9 @@ const ListGroups = () => {
                         </div>                                 
                     </div>
                     {apiData !== null && 
-                        <div className="row listGroupsTableRow">
+                        <div className="row listPoliciesTableRow">
                             <div className='col-12 userTableContainer'> 
-                                <GroupTable groups={apiData}/>
+                                <PoliciesTable policies={apiData}/>
                             </div>  
                         </div>
                     }
@@ -82,4 +82,4 @@ const ListGroups = () => {
     }
 }
 
-export default ListGroups;
+export default ListPolicies;

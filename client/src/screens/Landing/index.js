@@ -19,7 +19,7 @@ const Landing = () => {
 
     return(
         <>
-            <Header />
+            <Header isLoginRegister={true}/>
             <section>
                 <Container fluid className="landingContainer" id="home">
                     <Row className="landingImageContainer">

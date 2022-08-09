@@ -2,40 +2,40 @@
     border: 2px solid #005F73;
     border-radius: 26px;
     height: 100%;
-    overflow: hidden;
+    overflow: auto;
     margin-top: 0.5rem;
     padding: 0rem;
     margin-bottom: 1.5rem;
 }
 
-.listUsersTableRow{
-    width: 65%;
+.listPoliciesTableRow{
+    width: 70%;
     margin: 45px;
 }
 
 ::-webkit-scrollbar {
     width: 3px;
-  }
+}
   
-  /* Track */
-  ::-webkit-scrollbar-track {
+/* Track */
+::-webkit-scrollbar-track {
     background: #98C1D9;
-  }
+}
   
-  /* Handle */
-  ::-webkit-scrollbar-thumb {
+/* Handle */
+::-webkit-scrollbar-thumb {
     background: #005F73;
     border-radius: 12px;
-  }
+}
   
-  /* Handle on hover */
-  ::-webkit-scrollbar-thumb:hover {
+/* Handle on hover */
+::-webkit-scrollbar-thumb:hover {
     // background: #98C1D9;
     border-radius: 10px;
-  }
+}
 
 
-  .listUsersPageContainer {
+  .listPoliciesPageContainer {
     position: relative;
     display: flex;
     justify-content: center;
@@ -47,12 +47,12 @@
     background-repeat: no-repeat;
     // z-index: -1;
     height: 100%;
-    .listUsersPagePrimaryRow{
+    .listPoliciesPagePrimaryRow{
         display: flex;
         align-items: center;
         justify-content: space-between;
         width: 60%;
-        .listUsersPagePrimaryRowContainer{
+        .listPoliciesPagePrimaryRowContainer{
             display: flex;
             justify-content: space-between;
             align-items: center;
