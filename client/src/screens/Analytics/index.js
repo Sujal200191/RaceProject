@@ -84,7 +84,7 @@ const Analytics = () => {
                     <div className="row analyticsRow">
                         <div className="col-5 mfaDevicesAndOtherAnalyticsContainer">
                             <div className="mfaHeader">
-                                <p>MFA analysis</p>
+                                <p>Multi-factor Authentication(MFA) analysis</p>
                             </div>
                             <div className="mfaDevicesAnalyticsContainer pl-0">
                                 <div className="mfaTotalDevices">
@@ -92,10 +92,10 @@ const Analytics = () => {
                                     <p className="mfaTotalDevicesPara">{accountSummaryData?.Users}</p>
                                 </div>
                                 <div className="mfaEnabledDevices">
-                                    <p className="mfaEnabledDevicesLabel">MFA disabled:</p>
-                                    <p className="mfaEnabledDevicesPara">{mfaDisabledDevices}</p>
+                                    <p className="mfaEnabledDevicesLabel">MFA enabled:</p>
+                                    <p className="mfaEnabledDevicesPara">{accountSummaryData?.Users - mfaDisabledDevices}</p>
                                 </div>
-                                <p className="mfaFindingsMessage"><i>Only {accountSummaryData?.Users - mfaDisabledDevices} of {accountSummaryData?.Users} users have MFA enabled</i></p>
+                                <p className="mfaFindingsMessage"><i>{ mfaDisabledDevices} of {accountSummaryData?.Users} users have <span className="dangerColor">MFA disabled</span></i></p>
                             </div>
                             <div className="mfaHeader">
                                 <p>Critical Users</p>
@@ -135,7 +135,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Can user change password</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.AllowUsersToChangePassword == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.AllowUsersToChangePassword == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -146,7 +146,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Minimum password length</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.MinimumPasswordLength < 8 ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.MinimumPasswordLength}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -157,7 +157,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Require symbols</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireSymbols == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.RequireSymbols == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -168,7 +168,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Require numbers</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireNumbers == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.RequireNumbers == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -179,7 +179,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Require uppercase characters</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireUppercaseCharacters == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.RequireUppercaseCharacters == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -190,7 +190,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Require lowercase characters</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireLowercaseCharacters == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.RequireLowercaseCharacters == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -201,7 +201,7 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Expire passwords</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.ExpirePasswords == false ? 'dangerColor': ''}`}>
                                         <p>{passwordPolicyData.ExpirePasswords == true ? 'YES' : 'NO'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
@@ -212,8 +212,8 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Max password age</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
-                                        <p>{passwordPolicyData.MaxPasswordAge}</p>
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.MaxPasswordAge > 30 ? 'dangerColor': ''}`}>
+                                        <p>{passwordPolicyData.MaxPasswordAge ? passwordPolicyData.MaxPasswordAge : '-'}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
                                         <p>{`< 30`}</p>
@@ -223,8 +223,8 @@ const Analytics = () => {
                                     <div className="col-6 policyName">
                                         <p>Password reuse prevention</p>
                                     </div>
-                                    <div className="col-3 policyActualValue">
-                                        <p>{passwordPolicyData.PasswordReusePrevention}</p>
+                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.PasswordReusePrevention < 10 ? 'dangerColor' : ''}`}>
+                                        <p>{passwordPolicyData?.PasswordReusePrevention}</p>
                                     </div>
                                     <div className="col-3 policyRecommendedValue">
                                         <p>{`> 10`}</p>

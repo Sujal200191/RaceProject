@@ -108,13 +108,13 @@ const AWSMainPage = () => {
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>Account MFA enabled: </label>                  
                                 <p className="awsMainPageAccountSummaryValue">{apiData?.AccountMFAEnabled === 0 ? 'false' : 'true'}</p>       
                             </div> */}
-                            <div className="awsMainPageAccountSummary">
+                            {/* <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>MFA Devices: </label>                  
                                 <p className="awsMainPageAccountSummaryValue" onClick={handleUsersClick}>{apiData?.MFADevices}</p>       
-                            </div>
+                            </div> */}
                             <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel" htmlFor='text'>MFA Devices In Use: </label>                  
-                                <p className="awsMainPageAccountSummaryValue" onClick={handleUsersClick}>{apiData?.MFADevicesInUse }</p>       
+                                <p className="awsMainPageAccountSummaryValue">{apiData?.MFADevicesInUse }</p>       
                             </div>
                             {/* <div className="awsMainPageAccountSummary">
                                 <label className="awsMainPageAccountSummaryLabel " htmlFor='text'>Findings: </label>                  
