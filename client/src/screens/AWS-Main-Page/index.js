@@ -29,7 +29,7 @@ const AWSMainPage = () => {
             .then((data) => {
                 // eslint-disable-next-line no-console
                 console.log("Data in useEffect: ", data);
-                setApiData(data)
+                setApiData(data);
             });
         setLoader(false);
     }, []);
