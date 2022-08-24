@@ -16,7 +16,39 @@ const Analytics = () => {
     const [accountSummaryData, setAccountSummaryData] = useState(null);
     const [passwordPolicyData, setPasswordPolicyData] = useState(null);
     const [accountAuthorizationData, setAccountAuthorizationData] = useState(null);
+    const [isNistActive, setIsNistActive] = useState(false);
+    const [isIsoActive, setIsIsoActive] = useState(true);
+    const [isPciActive, setIsPciActive] = useState(false);
 
+    const handleISOClick = () => {
+        if(!isIsoActive){
+            setIsIsoActive(true);
+            setIsNistActive(false);
+            setIsPciActive(false);
+        }else{
+            setIsIsoActive(false);
+        }
+    }
+
+    const handleNistClick = () => {
+        if(!isNistActive){
+            setIsNistActive(true);
+            setIsIsoActive(false);
+            setIsPciActive(false);
+        }else{
+            setIsNistActive(false);
+        }
+    }
+
+    const handlePCIClick = () => {
+        if(!isPciActive){
+            setIsPciActive(true);
+            setIsIsoActive(false);
+            setIsNistActive(false);
+        }else{
+            setIsPciActive(false);
+        }
+    }
 
     useEffect(() => {
         setLoader(true);
@@ -119,123 +151,362 @@ const Analytics = () => {
                             <div className="passwordPolicyHeader">
                                 <p>Password policy analysis</p>
                             </div>
-                            <div className="passwordPolicyAnalyticsTableContainer pl-0">
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 header">
-                                        <p>Password Policy</p>
-                                    </div>
-                                    <div className="col-3 header">
-                                        <p>Actual</p>
-                                    </div>
-                                    <div className="col-3 header">
-                                        <p>Recommened</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Can user change password</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.AllowUsersToChangePassword == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.AllowUsersToChangePassword == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Minimum password length</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.MinimumPasswordLength < 8 ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.MinimumPasswordLength}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>8 - 12</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Require symbols</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireSymbols == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.RequireSymbols == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Require numbers</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireNumbers == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.RequireNumbers == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Require uppercase characters</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireUppercaseCharacters == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.RequireUppercaseCharacters == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Require lowercase characters</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireLowercaseCharacters == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.RequireLowercaseCharacters == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Expire passwords</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.ExpirePasswords == false ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.ExpirePasswords == true ? 'YES' : 'NO'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>YES</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Max password age</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.MaxPasswordAge > 30 ? 'dangerColor': ''}`}>
-                                        <p>{passwordPolicyData.MaxPasswordAge ? passwordPolicyData.MaxPasswordAge : '-'}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>{`< 30`}</p>
-                                    </div>
-                                </div>
-                                <div className="policyHeaderRow">
-                                    <div className="col-6 policyName">
-                                        <p>Password reuse prevention</p>
-                                    </div>
-                                    <div className={`col-3 policyActualValue ${passwordPolicyData?.PasswordReusePrevention < 10 ? 'dangerColor' : ''}`}>
-                                        <p>{passwordPolicyData?.PasswordReusePrevention}</p>
-                                    </div>
-                                    <div className="col-3 policyRecommendedValue">
-                                        <p>{`> 10`}</p>
-                                    </div>
-                                </div>
+                            <div className="tabContainer">
+                                <ul className="nav tab-nav">
+                                    <li className={`${isIsoActive ? 'active' : ''}`} onClick={handleISOClick}>ISO</li>
+                                    <li className={`${isNistActive ? 'active' : ''}`} onClick={handleNistClick}>NIST</li>
+                                    <li className={`${isPciActive ? 'active' : ''}`} onClick={handlePCIClick}>PCI DSS</li>
+                                </ul>
                             </div>
+                            {
+                                isIsoActive && 
+                                <div className="passwordPolicyAnalyticsTableContainer pl-0">
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 header">
+                                            <p>Password Policy</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Actual</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Recommened</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Can user change password</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.AllowUsersToChangePassword == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.AllowUsersToChangePassword == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Minimum password length</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.MinimumPasswordLength < 8 ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.MinimumPasswordLength}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>{`> 7`}</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require symbols</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireSymbols == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireSymbols == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require numbers</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireNumbers == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireNumbers == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require uppercase characters</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireUppercaseCharacters == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireUppercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require lowercase characters</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireLowercaseCharacters == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireLowercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Expire passwords</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.ExpirePasswords == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.ExpirePasswords == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Max password age</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.MaxPasswordAge > 90 ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.MaxPasswordAge ? passwordPolicyData.MaxPasswordAge : '-'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>{`< 91`}</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Password reuse prevention</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData?.PasswordReusePrevention}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            { 
+                                isNistActive &&
+                                <div className="passwordPolicyAnalyticsTableContainer pl-0">
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 header">
+                                            <p>Password Policy</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Actual</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Recommened</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Can user change password</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.AllowUsersToChangePassword == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.AllowUsersToChangePassword == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Minimum password length</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.MinimumPasswordLength < 8 ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData?.MinimumPasswordLength}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>{`> 7`}</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require symbols</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData.RequireSymbols == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require numbers</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData.RequireNumbers == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require uppercase characters</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData.RequireUppercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require lowercase characters</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData.RequireLowercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Expire passwords</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData?.ExpirePasswords == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not Mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Max password age</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData?.MaxPasswordAge}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not Mandatory</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Password reuse prevention</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData?.PasswordReusePrevention}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not Mandatory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
+                            { 
+                                isPciActive &&
+                                <div className="passwordPolicyAnalyticsTableContainer pl-0">
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 header">
+                                            <p>Password Policy</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Actual</p>
+                                        </div>
+                                        <div className="col-3 header">
+                                            <p>Recommened</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Can user change password</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.AllowUsersToChangePassword == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.AllowUsersToChangePassword == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Minimum password length</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.MinimumPasswordLength < 7 ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.MinimumPasswordLength}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>{`> 6`}</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require symbols</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireSymbols == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireSymbols == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require numbers</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireNumbers == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireNumbers == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require uppercase characters</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireUppercaseCharacters == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireUppercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Require lowercase characters</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.RequireLowercaseCharacters == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.RequireLowercaseCharacters == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Expire passwords</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.ExpirePasswords == false ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.ExpirePasswords == true ? 'YES' : 'NO'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>YES</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Max password age</p>
+                                        </div>
+                                        <div className={`col-3 policyActualValue ${passwordPolicyData?.MaxPasswordAge > 90 ? 'dangerColor': ''}`}>
+                                            <p>{passwordPolicyData.MaxPasswordAge ? passwordPolicyData.MaxPasswordAge : '-'}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>{`< 91`}</p>
+                                        </div>
+                                    </div>
+                                    <div className="policyHeaderRow">
+                                        <div className="col-6 policyName">
+                                            <p>Password reuse prevention</p>
+                                        </div>
+                                        <div className="col-3 policyActualValue">
+                                            <p>{passwordPolicyData?.PasswordReusePrevention}</p>
+                                        </div>
+                                        <div className="col-3 policyRecommendedValue">
+                                            <p>Not mandatory</p>
+                                        </div>
+                                    </div>
+                                </div>
+                            }
                         </div>
                     </div>
                 </div>
-            </>
-            
+            </>      
         );
     }    
 }
