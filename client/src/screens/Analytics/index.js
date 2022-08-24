@@ -25,8 +25,6 @@ const Analytics = () => {
             setIsIsoActive(true);
             setIsNistActive(false);
             setIsPciActive(false);
-        }else{
-            setIsIsoActive(false);
         }
     }
 
@@ -35,8 +33,6 @@ const Analytics = () => {
             setIsNistActive(true);
             setIsIsoActive(false);
             setIsPciActive(false);
-        }else{
-            setIsNistActive(false);
         }
     }
 
@@ -45,8 +41,6 @@ const Analytics = () => {
             setIsPciActive(true);
             setIsIsoActive(false);
             setIsNistActive(false);
-        }else{
-            setIsPciActive(false);
         }
     }
 
