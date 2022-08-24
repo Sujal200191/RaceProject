@@ -26,8 +26,8 @@ const Landing = () => {
                         <img src={ Web3 } alt="Landing" className="landingMainImage" />
                     </Row>
                     <Row className="landingHeaderRow">
-                        <h1 className="landingMainHeader">WELCOME TO POCKET USER MANAGEMENT SYSTEM</h1>
-                        <h2 className="landingSecondaryHeader">IT IS YOUR PERSONAL USER MANAGEMENT SYSTEM FOR YOUR DIFFERENT WEB SERVICES</h2>
+                        <h1 className="landingMainHeader">CLOUD IDENTITY ASSESSMENT APPLICATION</h1>
+                        <h2 className="landingSecondaryHeader">IT IS YOUR PERSONAL USER MANAGEMENT SYSTEM FOR YOUR CLOUD ENVIRONMENT</h2>
 
                         <h3>PLEASE SIGN UP OR LOGIN TO CONTINUE</h3>
                     </Row>

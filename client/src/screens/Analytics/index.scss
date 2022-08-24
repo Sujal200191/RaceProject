@@ -25,6 +25,7 @@
                 opacity: 1;
                 margin-bottom: 0rem;
                 margin: 20px 15px;
+                padding-top: 24px;
             }
             .mfaDevicesAnalyticsContainer{
                 margin: 10px;
@@ -127,6 +128,29 @@
             }         
         }
         .passwordPolicyAnalyticsContainer{
+            .tabContainer{
+                .tab-nav{
+                    display: flex;
+                    justify-content: space-around;
+                    padding: 5px;
+                    li{
+                        color: #005F73;
+                        font-size: 20px;
+                        font-weight: 500;
+                        line-height: 22px;
+                        cursor: pointer;
+                        &.active{
+                            border-bottom: 3px solid #005F73;
+                        } 
+                        &.hover{
+                            cursor: pointer;
+                        }
+                    }
+                    &.hover{
+                        cursor: pointer;
+                    }
+                }
+            }
             .policyHeaderRow{
                 display: flex;
                 .header{
